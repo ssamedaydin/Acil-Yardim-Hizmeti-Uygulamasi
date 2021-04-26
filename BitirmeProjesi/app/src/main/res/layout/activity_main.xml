@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/anasayfa"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/acilButon"
+        android:layout_width="47dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="648dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/dumanButonu"
+        android:layout_width="47dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="248dp"
+        android:layout_marginTop="660dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/ayarlarButonu"
+        android:layout_width="47dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="308dp"
+        android:layout_marginTop="660dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/navigasyonButonu"
+        android:layout_width="54dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="664dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/nabizButonu2"
+        android:layout_width="47dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="664dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/analizButonu"
+        android:layout_width="129dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="492dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/sicaklikButonu"
+        android:layout_width="129dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="492dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/nabizButonu"
+        android:layout_width="129dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="328dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <ImageView
+        android:id="@+id/oksijenButonu"
+        android:layout_width="129dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="236dp"
+        android:layout_marginTop="328dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?android:attr/activatedBackgroundIndicator" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
+        android:text="Ragitech ile güvendesin :)"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="60dp"
+        android:text="Merhaba Samed,"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNabiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <TextView
+        android:id="@+id/txtNabiz2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="76dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <TextView
+        android:id="@+id/txtSicaklik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.746" />
+</androidx.constraintlayout.widget.ConstraintLayout>
