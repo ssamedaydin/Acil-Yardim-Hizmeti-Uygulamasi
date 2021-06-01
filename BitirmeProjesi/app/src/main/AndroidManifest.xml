@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BitirmeProjesi">
-        <activity android:name=".AyarlarSayfasi"></activity>
+        <activity android:name=".AcilActivity"></activity>
+        <activity android:name=".AyarlarSayfasi" />
         <activity android:name=".DumanSayfai" />
         <activity android:name=".MekanlarActivity" />
         <!--

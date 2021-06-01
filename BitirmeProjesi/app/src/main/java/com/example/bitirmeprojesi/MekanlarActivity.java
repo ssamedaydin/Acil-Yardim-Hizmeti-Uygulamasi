@@ -70,9 +70,7 @@ public class MekanlarActivity extends AppCompatActivity {
                         Mekanlar mekan = new Mekanlar(mekan_adi,Double.parseDouble(enlem),Double.parseDouble(boylam),adres);
 
                         mekanlarArrayList.add(mekan);
-
                     }
-
                     adapter = new MekanlarRVAdapter(MekanlarActivity.this,mekanlarArrayList);
                     rv.setAdapter(adapter);
 

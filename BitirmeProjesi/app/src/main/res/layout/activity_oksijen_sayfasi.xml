@@ -8,7 +8,7 @@
     tools:context=".OksijenSayfasi">
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/mTxtOksijen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"

@@ -42,7 +42,7 @@ public class BluetoothConnectedActivity extends Activity {
     private Button connect;
     private ListView listView;
     private BluetoothAdapter mBTAdapter;
-    private static final int BT_ENABLE_REQUEST = 10; // This is the code we use for BT Enable
+    private static final int BT_ENABLE_REQUEST = 10;
     private static final int SETTINGS = 20;
     private UUID mDeviceUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
     private int mBufferSize = 50000; //Default
@@ -171,7 +171,7 @@ public class BluetoothConnectedActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 adapter.setSelectedIndex(position);
-              //  connect.setEnabled(true);
+                connect.setEnabled(true);
             }
         });
     }

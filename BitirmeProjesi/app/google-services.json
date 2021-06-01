@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "24478370928",
+    "firebase_url": "https://genelverianalizleri-default-rtdb.firebaseio.com",
+    "project_id": "genelverianalizleri",
+    "storage_bucket": "genelverianalizleri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24478370928:android:5bb7c4cca4b296856a78b5",
+        "android_client_info": {
+          "package_name": "com.example.bitirmeprojesi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24478370928-d9d3nvhc47h4b1i9g550k9rt7paug16p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJng7-0rm0D8aLJxQQJOKnoIjk16zmcjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24478370928-d9d3nvhc47h4b1i9g550k9rt7paug16p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

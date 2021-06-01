@@ -19,18 +19,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     /*BLUETOOTH KISMI*/
     Handler mHandler = new Handler(Looper.getMainLooper());
     private static final String TAG = "BlueTest5-MainActivity";
     private int mMaxChars = 50000;//Default
     private UUID mDeviceUUID;
     private BluetoothSocket mBTSocket;
-    private ReadInput mReadThread = null;
+    private OksijenSayfasi.ReadInput mReadThread = null;
     private boolean mIsUserInitiatedDisconnect = false;
     private boolean mIsBluetoothConnected = false;
     private BluetoothDevice mDevice;
@@ -41,6 +42,7 @@ public class MainActivity extends Activity {
             dumanButonu,ayarlarButonu;
     private TextView mTxtNabiz;
     private TextView mTxtSicaklik;
+    private TextView mTxtOksijen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +55,10 @@ public class MainActivity extends Activity {
         mDevice = b.getParcelable(BluetoothConnectedActivity.DEVICE_EXTRA);
         mDeviceUUID = UUID.fromString(b.getString(BluetoothConnectedActivity.DEVICE_UUID));
         mMaxChars = b.getInt(BluetoothConnectedActivity.BUFFER_SIZE);
-        Log.d(TAG, "Ready");
+        Log.d(TAG, "Hazır");
         mTxtNabiz = (TextView) findViewById(R.id.txtNabiz);
         mTxtSicaklik = (TextView) findViewById(R.id.txtSicaklik);
+        mTxtOksijen = (TextView) findViewById(R.id.mTxtOksijen);
         /*BLUETOOTH KISMI*/
 
         nabizButon = findViewById(R.id.nabizButonu);
@@ -85,6 +88,8 @@ public class MainActivity extends Activity {
                 overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
             }
         });
+
+        
 
         sicaklikButon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,10 +153,10 @@ public class MainActivity extends Activity {
                 startActivity(i);
             }
         });
+
     }
 
     /*BLUETOOTH KISMI*/
-
 
     private class ReadInput implements Runnable {
 
@@ -180,25 +185,25 @@ public class MainActivity extends Activity {
 
                         for (i = 0; i < buffer.length && buffer[i] != 0; i++) {
                         }
-                        final String strInput = new String(buffer, 0, i);
+                        final String strInput = new String(buffer, 0, i); //Arduino'dan gelen veri buffer alınarak String'e dönüştürüldü.
 
-                        mHandler.post(new Runnable() {
+                        mHandler.post(new Runnable() { //Sürekli veri çekilmesi için Handler oluşturuldu.
                             @Override
                             public void run() {
-                                String[] parcalananVeri = strInput.split(",", -1);
+                                String[] parcalananVeri = strInput.split(",", -1); //Arduiodan gelen veriler virgül ile ayrılarak kendi alanlarına bölündü.
 
-                                String[] arrayNabiz = parcalananVeri[0].split(":", -1);
+                                String[] arrayNabiz = parcalananVeri[0].split(":", -1); //İlk nabız verisi çekildi.
                                 mTxtNabiz.setText(arrayNabiz[1].trim());
 
-                                String[] arrayOksijen = parcalananVeri[1].split(":", -1);
-                                mTxtNabiz.setText(arrayNabiz[1].trim());
+                                String[] arrayOksijen = parcalananVeri[1].split(":", -1); // İkinci oksijen verisi çekildi.
+                                mTxtOksijen.setText(arrayNabiz[1].trim());
 
-                                String[] arraySicaklik = parcalananVeri[2].split(":", -1);
+                                String[] arraySicaklik = parcalananVeri[2].split(":", -1); // Üçüncü sıcaklık verisi çekildi.
                                 mTxtSicaklik.setText(arraySicaklik[1].trim());
                             }
                         });
                     }
-                    Thread.sleep(500);
+                    Thread.sleep(1000); // Her bir saniyede bir işlem tekrarı uygulandı.
                 }
             } catch (IOException e) {
 // TODO Auto-generated catch block
@@ -215,7 +220,7 @@ public class MainActivity extends Activity {
     }
 
 
-    private class DisConnectBT extends AsyncTask<Void, Void, Void> {
+    class DisConnectBT extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -262,7 +267,7 @@ public class MainActivity extends Activity {
         if (mBTSocket != null && mIsBluetoothConnected) {
             new DisConnectBT().execute();
         }
-        Log.d(TAG, "Paused");
+        Log.d(TAG, "");
         super.onPause();
     }
 
@@ -271,13 +276,13 @@ public class MainActivity extends Activity {
         if (mBTSocket == null || !mIsBluetoothConnected) {
             new ConnectBT().execute();
         }
-        Log.d(TAG, "Resumed");
+        Log.d(TAG, "");
         super.onResume();
     }
 
     @Override
     protected void onStop() {
-        Log.d(TAG, "Stopped");
+        Log.d(TAG, "");
         super.onStop();
     }
 
@@ -288,12 +293,12 @@ public class MainActivity extends Activity {
     }
 
 
-    private class ConnectBT extends AsyncTask<Void, Void, Void> {
+    class ConnectBT extends AsyncTask<Void, Void, Void> {
         private boolean mConnectSuccessful = true;
 
         @Override
         protected void onPreExecute() {
-            progressDialog = ProgressDialog.show(MainActivity.this, "Bekleyin", "Baglanıyor");// http://stackoverflow.com/a/11130220/1287554
+            progressDialog = ProgressDialog.show(MainActivity.this, "Bekleyin", "Bağlanıyor");// http://stackoverflow.com/a/11130220/1287554
         }
 
         @Override
@@ -305,7 +310,7 @@ public class MainActivity extends Activity {
                     mBTSocket.connect();
                 }
             } catch (IOException e) {
-
+// Unable to connect to device
                 e.printStackTrace();
                 mConnectSuccessful = false;
             }
@@ -320,15 +325,15 @@ public class MainActivity extends Activity {
                 Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
                 finish();
             } else {
-                msg("Baglanan Cihaz");
+                msg("Cıhaza bağlandı");
                 mIsBluetoothConnected = true;
-                mReadThread = new ReadInput();
+
             }
 
             progressDialog.dismiss();
         }
 
         /*BLUETOOTH KISMI*/
-
     }
+
 }
