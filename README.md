@@ -7,4 +7,3 @@ Google Maps Api kullanılmıştır.
 Konum etrafındaki mekanları JSON olarak web servis ile çeklip listelenmiştir.
 Bluetooth modeli yazılarak arduino ve mobil uygulama arasında kablosuz veri iletişimi sağlanmıştır.
 
-![tasarim](https://user-images.githubusercontent.com/75077248/123960427-f35af880-d9b7-11eb-94f7-181bd8e5ec2c.png)
